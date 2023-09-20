@@ -20,6 +20,7 @@ public class Controller01 {
 
 
 
+
     //path2로 요청왔을 때 일하는 메소드 작성
 
 }
