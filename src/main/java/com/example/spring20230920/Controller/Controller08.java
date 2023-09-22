@@ -4,6 +4,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.swing.event.ListDataEvent;
+import java.util.List;
+import java.util.Map;
+
 @Controller
 @RequestMapping("main8")
 public class Controller08 {
@@ -20,7 +24,11 @@ public class Controller08 {
     public void method(Model model){
         model.addAttribute("propone","✨");
         model.addAttribute("proptwo","🙌");
-        
+    }
+    public void method3(Model model){
+        model.addAttribute("myName","손흥민");
+        model.addAttribute("yorAddress", List.of(5,4));
+        model.addAttribute("herEmail", Map.of("a","b"));
     }
     
 }

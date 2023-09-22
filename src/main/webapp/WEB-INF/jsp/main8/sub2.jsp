@@ -9,9 +9,15 @@
 <html>
 <head>
     <title>Title</title>
-<%--    div{font-size: 48px;}div--%>
+    <style>div {
+        font-size: 48px;
+        text-align: right;
+    }
+    </style>
+    <%--    div{font-size: 48px;}div--%>
 </head>
 <body>
+<h1>sub.jsp</h1>
 <h1>${propone}</h1>
 <h1>${proptwo}</h1>
 </body>

@@ -11,6 +11,17 @@
     <title>Title</title>
 </head>
 <body>
+<%--배열은 []와 인덱스 조합으로 출력--%>
+<h1>${attr5[0]}</h1>
+<h1>${attr5[1]}</h1>
+<h1>${yourArr6[0]}</h1>
+<h1>${yourArr6[1]}</h1>
+<h1>${yourName6[2]}</h1>
+<hr>
+<h1>${attr1}</h1>
+<h1>${attr2}</h1>
+<h1>${attr3}</h1>
+<h1>${attr4}</h1>
 
 </body>
 </html>

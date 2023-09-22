@@ -5,13 +5,11 @@ public class MyDto2 {
     //address
     //birthDate
     //signed property -논리형
+
     private String name;
     private String address;
     private String birthdate;
     private Boolean signed;
-
-
-
 
     public String getName() {
         return name;

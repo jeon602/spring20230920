@@ -1,4 +1,5 @@
 package com.example.spring20230920.Controller;
+//Title bean
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -43,6 +44,7 @@ public class Controller05 {
         System.out.println("s = " + s);
     }
 }
+
 class Student5 {
     private String email;
     private Boolean married;
@@ -109,23 +111,18 @@ class Person5 {
     public String getName() {
         return name;
     }
-
     public void setName(String name) {
         this.name = name;
     }
-
     public Integer getAge() {
         return age;
     }
-
     public void setAge(Integer age) {
         this.age = age;
     }
-
     public String getAddress() {
         return address;
     }
-
     public void setAddress(String address) {
         this.address = address;
     }

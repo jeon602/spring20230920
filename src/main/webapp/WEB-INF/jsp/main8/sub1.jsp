@@ -9,13 +9,7 @@
 <htmL>
 
 <head>
-    <title>Title
-    <style>
-        {
-            background: palevioletred;
-
-        }
-    </style></title>
+    <title>Title</title>
 </head>
 <body>
 <h2>main8/sub1.jsp</h2>

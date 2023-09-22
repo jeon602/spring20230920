@@ -15,6 +15,7 @@ public class MyDto1 {
     private String homeAddress; //카멜 표기법
     private String MYHOME;
     private Boolean married;
+    private Boolean checked;
 
     public Boolean isChecked() {
         return checked;
@@ -24,7 +25,7 @@ public class MyDto1 {
         this.checked = checked;
     }
 
-    private Boolean checked;
+    private Boolean getMarried;
     //필드의 타입이 boolean의 경우 get set 메소드는 getMarried도 가능, isMarried도 가ㄴ,ㅇ
 //대문자
     public String getMYHOME() {

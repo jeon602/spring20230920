@@ -1,5 +1,5 @@
 package com.example.spring20230920.Controller;
-
+//Title: request parameter
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
