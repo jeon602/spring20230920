@@ -14,5 +14,11 @@
 <h3>${person1.food}</h3>
 <h3>${person1.computer}</h3>
 <h3>${person1.birthDate}</h3>
+
+
+
+
+
+
 </body>
 </html>

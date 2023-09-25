@@ -73,8 +73,44 @@ public class Controller10 {
         model.addAttribute("moving", list);
 
     }
-}
 
+
+    @RequestMapping("sub7")
+    public void method7(Model model){
+    model.addAttribute("a",3);
+    model.addAttribute("b",5);
+
+
+    model.addAttribute("c","8");
+    model.addAttribute("d","9");
+    }
+    @RequestMapping("sub8")
+    public void method8(Model model){
+        model.addAttribute("a",3);
+        model.addAttribute("b",5);
+        model.addAttribute("c","java");
+        model.addAttribute("d","spring");
+        model.addAttribute("e","11");
+        model.addAttribute("f","2");
+        model.addAttribute("g",2);
+//        결론: 타입을 맞춰서 입력할 것, false true
+//          <p>${e > f}</p>: false  //<p>${e > g}</p>: true 값을 출력한다.
+
+    }
+    @RequestMapping("sub9")
+    public void method9(Model model){
+        model.addAttribute("a","java");
+        model.addAttribute("b","");
+        model.addAttribute("c",List.of(3,4));
+        model.addAttribute("d",List.of());
+        model.addAttribute("e",Map.of("name","son"));
+        model.addAttribute("f",Map.of());
+        model.addAttribute("g",null);
+    }
+
+
+
+}
 
 
 
