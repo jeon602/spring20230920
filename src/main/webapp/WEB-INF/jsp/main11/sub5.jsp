@@ -23,9 +23,9 @@
         <c:when test="false">
             <p>when2번</p>
         </c:when>
-        <c:when test="false">
+        <c:wheen test="false">
             <p>when3번</p>
-        </c:when>
+        </c:wheen>
        <c:otherwise>
            <P>otherwise 태그 내용</P>
        </c:otherwise>

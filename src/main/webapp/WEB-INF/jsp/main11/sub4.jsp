@@ -24,10 +24,6 @@
     <p>투표 불가능합니다.</p>
     </c:if>
 </c:if>
-<c:if test="${empty param.age}">
-    <p>
-        age 값을 입력해 주세요
-    </p>
-</c:if>
+<c:if test="${empty param.age}"></c:if>
 </body>
 </html>

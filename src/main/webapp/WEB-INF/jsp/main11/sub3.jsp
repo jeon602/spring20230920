@@ -12,11 +12,14 @@
 </head>
 <body>
 <h1>jstl if tag</h1>
-<c:if test="true">
+
+<c:if test="true">                                                                                              0
     <p>출력 🍕</p>
 </c:if>
+
+<hr>
 c<c:if test="false">
-    <p>출력 안됨.¯\_(ツ)_/¯</p>
+    <p> /_(ツ)_/¯</p>
 </c:if>
 
 <hr>
