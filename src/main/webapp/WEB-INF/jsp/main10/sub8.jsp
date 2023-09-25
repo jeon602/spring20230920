@@ -76,6 +76,28 @@
 <p>\${true or true} : ${true or true}}</p>
 <p>\${false or false} : ${true or true}}</p>
 
+<h4>! (not)</h4>
+<p>\${! true}</p>
+<p>\${! false}</p>
+<p>\${not true}</p>
+<p>\${not false}</p>
+<%--결과는 ! (not)
+${! true}}
 
+${! false}}
+
+${not true}}
+
+${not false}}--%>
+<h2>not empty (! empty)</h2>
+<p>null 이 아닌 속성. 길이가 1이상인 콜렉션 또는 문자열 true</p>
+<p>\${not empty a} : ${not empty b} </p>
+<p>\${not empty b} : ${not empty b} </p>
+<p>\${not empty c} : ${not empty b} </p>
+<p>\${not empty d} : ${not empty b} </p>
+<p>\${not empty e} : ${not empty b} </p>
+<p>\${not empty f} : ${not empty b} </p>
+<p>\${not empty g} : ${not empty b} </p>
+<p>\${not empty h} : ${not empty b} </p>
 </body>
 </html>
