@@ -10,7 +10,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Title</title>+
 </head>
 <body>
 <h3>el에서 사용할 수 있는 연산자</h3>

@@ -35,7 +35,7 @@ public class Controller12 {
     public void method5(){}
     @RequestMapping("sub6")
     public void method5(@RequestParam("q") String query, Model model){
-        model.addAttribute("result");
+        model.addAttribute("result", query += "검색 결과");
     }
 }
 
