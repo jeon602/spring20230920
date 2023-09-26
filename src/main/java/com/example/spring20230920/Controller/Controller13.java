@@ -1,50 +1,91 @@
 package com.example.spring20230920.Controller;
 
+import com.example.spring20230920.domain.MyDto11;
+import com.example.spring20230920.domain.MyDto12;
+import com.example.spring20230920.domain.MyDto13;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.Arrays;
+import java.util.List;
 
 @Controller
 @RequestMapping("main13")
 public class Controller13 {
-    @RequestMapping("sub1")
-    public void method1() {
-    }
-
-    @RequestMapping("sub2")
-    public void method2() {
-    }
+    @RequestMapping({"sub1", "sub2", "sub4","sub7","sub9","sub11","sub13"})
+    public void method1() {}
 
     @RequestMapping("sub3")
-    public void method3(@RequestParam("param1") String param1,
-                        @RequestParam("param2") Integer param2,
-                        @RequestParam("param3") String param3,
-                        @RequestParam("param4") LocalDate param4,
-                        @RequestParam("param5") LocalDateTime param5,
-                        @RequestParam("param6") String param6
-    ) {//integer와 string 둘 다 가능하지만 보통 상식) 같은 타입으로 맞추어준다.
-        System.out.println("param1" + param1);
-        System.out.println("param2" + param2);
-        System.out.println("param3" + param3);
-        System.out.println("param4" + param4); //날짜를 출력하나, 문자열이 넘어가는 것.
-        System.out.println("param5" + param5); //datetime-local
+    public void method3(
+            @RequestParam("param1") String param1,
+            @RequestParam(value = "param2", defaultValue = "0") Integer param2,
+            @RequestParam("param3") String param3,
+            @RequestParam(value = "param4", defaultValue = "2023-09-26") LocalDate param4, // 날짜
+            @RequestParam(value = "param5", defaultValue = "2023-09-26T11:15:30") LocalDateTime param5, // 날짜시간
+            @RequestParam(value = "param6", defaultValue = "value1") String param6,
+            @RequestParam(value = "param8", required = false) String[] param8,
+            @RequestParam("param8") List<String> param9
+    ) {
 
-        System.out.println("param6" + param6);
-    //우리는 문자열을 자바 안에서 변환시켜 사용할 가능성이 높음. 자바는 날짜는  local date type으로 사용하면 된다. string 대신에
-    }
+        System.out.println("param1 = " + param1);
+        System.out.println("param2 = " + param2);
+        System.out.println("param3 = " + param3);
+        System.out.println("param4 = " + param4);
+        System.out.println("param5 = " + param5);
+        System.out.println("param6 = " + param6);
 
-    @RequestMapping("sub4")
-    public void method4() {
+        if (param8 != null) {
+            Arrays.stream(param8).forEach(System.out::println);
+        }
+
+        System.out.println("list로 받음");
+        param9.forEach(System.out::println);
     }
 
     @RequestMapping("sub5")
-    public void method5() {
+    public void method5(
+            @RequestParam("userId") String id,
+            @RequestParam("userEmail") String email,
+            @RequestParam("birthDate") LocalDate birth,
+            @RequestParam("hobby") List<String> hobby
+    ) {
+        System.out.println("id = " + id);
+        System.out.println("email = " + email);
+        System.out.println("birth = " + birth);
+        System.out.println("hobby = " + hobby);
     }
 
     @RequestMapping("sub6")
-    public void method6() {
+    public void mehthod6(MyDto11 user) {
+        System.out.println("user = " + user);
     }
+    @RequestMapping("sub8")
+    public void mehthod8(MyDto12 info) {
+        System.out.println("info = " + info);
+    }
+    @RequestMapping("sub10")
+    public void mehthod10(
+            @RequestParam("title")String title,
+            @RequestParam("contentBody")String contentBody
+            ) {
+        System.out.println("title = " + title);
+        System.out.println("contentBody = " + contentBody);
+    }
+    @RequestMapping("sub11")
+    public void method12(MyDto13 vo){
+        System.out.println("vo = " +vo);
+    }
+    @RequestMapping("sub14")
+    public void method14(@RequestParam("hobby") String hobby,
+                         @RequestParam("food") String food)
+    {
+        System.out.println("hobby :" + hobby);
+        System.out.println("food :" + food);
+    }
+
+    @RequestMapping("sub99")
+    public void method99(){}
 }

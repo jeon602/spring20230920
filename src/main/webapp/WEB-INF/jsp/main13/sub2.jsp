@@ -51,15 +51,15 @@
     </div>
     <div>
         <label for="input8">Voluptate.</label>
-        <input type="" name="param8" id="input8">
+        <input type="checkbox" name="param8" value="pizza" id="input8">
     </div>
     <div>
         <label for="input9">Quae.</label>
-        <input type="" name="param9" id="input9">
+        <input type="checkbox" name="param8" value="melon" id="input9">
     </div>
     <div>
         <label for="input10">Rem.</label>
-        <input type="" name="param10" id="input10">
+        <input type="checkbox" name="param8" value="coffee" id="input10">
     </div>
     <button> button</button>
 </form>
