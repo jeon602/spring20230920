@@ -15,7 +15,7 @@
 <form action="/main13/sub13">
     <%--    select>option[value]*3--%>
     <div>
-        <select name="hobby"..0.0 id="">
+        <select name="hobby" sid="">
             <option value="soccer">축구</option>
             <option value="baseball">야구</option>
             <option value="basketball">농구</option>

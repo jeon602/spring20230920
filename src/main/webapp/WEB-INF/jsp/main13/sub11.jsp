@@ -26,7 +26,7 @@
             <label for="textarea1">자기 소개</label>
         <textarea name="description" id="textarea1" cols="30" rows="10"></textarea>
     </div>
-    <button>전송!ㅈ</button>
+    <button>전송!</button>
 </form>
 </body>
 </html>

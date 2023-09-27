@@ -8,11 +8,21 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>연습용 sub</title>
+    <style>
+        body {
+            background: palevioletred;
+            text-align: center;
+        }
+        div{text-align: left;}
+    </style>
 </head>
 <body>
 <h5>연습용 sub</h5>
 <form action="/main13/sub99">
+    <div z>
+
+    </div>
     <div>
         <label for="input1">이름</label>
         <input type="" id="input1" name="">
@@ -26,12 +36,14 @@
         <input type="" id="input3" name="">
     </div>
     <div>
-        <label for="input4"></label>
+        <label for="input4">조퇴</label>
         <input type="" id="input4" name="">
     </div>
     <div>
-        <label for="input5"></label>
+        <label for="input5">휴가</label>
         <input type="" id="input5" name="">
-    </div></form>
+    </div>
+    <button>입력!</button>
+</form>
 </body>
 </html>
