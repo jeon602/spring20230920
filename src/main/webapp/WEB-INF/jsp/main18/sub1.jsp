@@ -9,6 +9,12 @@
 <html>
 <head>
     <title>Title</title>
+
+    <style>
+        body{
+            background: skyblue;
+        }
+    </style>
 </head>
 <body>
 <h1> jdbc 연습 !! </h1>
