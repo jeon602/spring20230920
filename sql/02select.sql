@@ -19,7 +19,6 @@ SELECT * FROM suppliers;
 SELECT CustomerID, CustomerName, Country
 FROM customers;
 SELECT LastName, FirstName
-
 FROM employees;
 -- 전체 컬럼을 조회할 때
 
