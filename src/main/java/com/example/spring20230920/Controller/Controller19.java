@@ -175,7 +175,7 @@ public class Controller19 {
     public void method6(Model model) throws SQLException {
         String sql = """
                 SELECT CustomerID, CustomerName, Address, Country
-                FROM customers
+                FROM customers 
                 """;
 
         Connection connection = dataSource.getConnection();

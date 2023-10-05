@@ -11,4 +11,3 @@ SELECT * FROM suppliers;
 SELECT * FROM suppliers WHERE NOT Country = 'Japan'; -- 27
 
 
-SELECT
