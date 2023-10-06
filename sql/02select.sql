@@ -29,6 +29,7 @@ FROM customers;
 --  예2) 상품(product)의 이름(productName), 단위 (unit),price 조회
 SELECT ProductName, Unit, Price
 FROM products;
+select * from products;
 
 -- 예3) 공급자 (suppliers)의 이름 (supplierName), address 국가 country 조회
 SELECT SupplierName, Address, Country

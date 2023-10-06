@@ -9,13 +9,13 @@
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <html>
 <head>
-    <title>가격으로 상품 조회 하기 </title>
+    <title> 가격으로 상품 조회 하기 </title>
 </head>
 <body>
 <form action="/main20/sub8" >
     <input type="number" name="min" value="10"> ~
-    <input type="number" name="man" value="30"> ~
-    <butoon>조회</butoon>
+    <input type="number" name="man" value="30">
+    <button>click</button>
 
 
 </form>

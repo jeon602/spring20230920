@@ -19,11 +19,11 @@ select * from employees where BirthDate >= '1958-01-01' and BirthDate <'1959-01-
 
 
 # 스웨덴이나 이탈리아에 있는 공급자들 조회
-# 1963년 8월 생 직원 조회
+# 1963년 8월생 직원 조회
 # 가격이 100.00~200.00포함 사이의 상품 조회
 # 1997년에 주문한 주문  조회
 
-select *from suppliers;
+select *from products;
 select * from suppliers WHERE Country = 'Sweden' or Country = 'Italy'; -- 4명
 select * from employees WHERE BirthDate >= '1963-08-01' and BirthDate <'1963-09-01';
 SELECT * from products where Price >=100 and Price <= 200;
@@ -32,4 +32,4 @@ SELECT * from orders where OrderDate <'1998-01-01'and OrderDate>='1997-01-01';
 # 여러 연산자 조합시 괄호 사용해서 우선순위 결정해줄 것
 # 10달러 미만, 100달러 이상
 SELECT *FROM products where Price <10 OR Price >= 100 AND CategoryID = 1;
-select * from products where (Price<10 OR Price>= 100 AND (CategoryID = 1)
+# select * from products where (Price<10 OR Price>= 100 AND (CategoryID ) = 1;

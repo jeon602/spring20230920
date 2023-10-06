@@ -1,0 +1,87 @@
+package com.example.spring20230920.Controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import javax.sql.DataSource;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+@Controller
+@RequestMapping("main21")
+public class Controller21 {
+    @Autowired
+    private DataSource dataSource;
+
+    @GetMapping("sub1")
+    public void method1()throws SQLException {
+        String sql = """
+                SELECT customerName AS name,
+                        country
+                FROM customers
+                WHERE CustomerID <= 3
+                """;
+        Connection connection = dataSource.getConnection();
+        Statement statement = connection.createStatement();
+        ResultSet resultSet = statement.executeQuery(sql);
+
+        try (connection; statement; resultSet){
+            while (resultSet.next()){
+                String name = resultSet.getString("NAME");
+                String country = resultSet.getString("country");
+                System.out.println(name + " : " + country);
+
+            }
+
+        }
+
+    }
+
+    @GetMapping("sub2")
+    public void method2() throws SQLException {
+        String sql = """
+                SELECT CONCAT(lastName, ', ', firstName) AS fullName,
+                       BirthDate AS birth,
+                       Notes AS `DESC`
+                FROM employees
+                """;
+        Connection connection = dataSource.getConnection();
+        Statement statement = connection.createStatement();
+        ResultSet resultSet = statement.executeQuery(sql);
+
+        try (connection; statement; resultSet) {
+            System.out.println("직원 목록#");
+            while (resultSet.next()) {
+                String name = resultSet.getString("fullName");
+                String birth = resultSet.getString("birth");
+                String desc = resultSet.getString("desc");
+
+                System.out.println(name + " : " + birth + " : " + desc);
+            }
+        }
+    }
+
+
+
+
+
+//별칭은 테이블 명에도 줄 수 있다.
+
+    @GetMapping("sub3")
+    public void method3() throws SQLException{
+        String sql = """
+                """;
+        Connection connection = dataSource.getConnection();
+        Statement statement = connection.createStatement();
+
+    }
+
+}
+
+
+
+
