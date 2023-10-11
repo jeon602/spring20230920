@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
-  User: admin
-  Date: 2023-09-22
-  Time: 오전 11:46
+  User: user
+  Date: 2023-09-27
+  Time: 오전 9:24
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -11,14 +11,8 @@
     <title>Title</title>
 </head>
 <body>
-<h3>${person1.food}</h3>
-<h3>${person1.computer}</h3>
-<h3>${person1.birthDate}</h3>
-
-
-
-
-
-
+<%--세션에 넣은 attr는 아래와 같이 꺼내면 된다.--%>
+<h2>${username}님 반갑습니다.</h2>
+<a href="/main15/sub6">다른 페이지로 가기</a>
 </body>
 </html>
