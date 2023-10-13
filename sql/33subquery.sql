@@ -62,3 +62,37 @@ FROM orders o join orderdetails od On o.OrderID = od.OrderID
 where p.CategoryID = 1;
 
 
+
+
+-- 예) 주문한 적 없는 고객들
+SELECT CustomerID FROM orders; -- 여러 행 한 개의 열.
+
+select * FROM customers WHERE CustomerID Not In (SELECT CustomerID FROM orders);
+-- leetcode 175 183 181
+
+-- 행과 열이 여러개
+SELECT * from customers;
+INSERT INTO customers(ContactName, Address, Country)
+VALUES('name1','address1','country');
+SELECT SupplierName,Address, Country from suppliers;
+INSERT INTO customers (CustomerName, Address,Country)(select SupplierName, Address,Country from suppliers);
+
+INSERT INTO customers (CustomerName,Address,Country)(SELECT ContactName,City, Phone,Country from suppliers); -- 불가능하다
+
+
+SELECT * FROM customers where (City, Country) IN (select City, Country FROM suppliers);  -- 공급자가 있는 나라와 도시에 있는 고객들
+
+CREATE TABLE table_c
+SELECT CustomerName, City, Country FROM customers;
+
+SELECT  * FROM table_c;
+DESC  table_c;-- subquery
+
+
+# -- 1번 카테고리에 있는 상품들로 새 테이블을 만드는데
+# --  new table - productname, categoryName, price
+# -- new table의 레코드들은  PN catagory name table_d를 만들어보자
+# CREATE TABLE table_d
+# SELECT p.ProductName, c.CategoryName, p.Price FROM products p join
+# # CREATE TABLE table_d
+# # SELECT ProductName,CategoryName,Price frowhere ;;
