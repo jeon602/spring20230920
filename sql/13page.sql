@@ -12,3 +12,9 @@ SELECT * FROM suppliers;
 # 31~40              4
 # 레코드가 n개 이고 페이지 10페이지 씩 보여줄 때 마지막 페이지 번호는
 # ((n-1)/10)+1
+
+
+
+SELECT * FROM products p join suppliers s 
+On p.supplierID = s.SupplierID; 
+SELECT * FROM products p join suppliers s using (supplierID);
