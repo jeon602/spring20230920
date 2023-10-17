@@ -18,3 +18,14 @@ FROM customers c JOIN orders o ON c.CustomerID = o.CustomerID
 GROUP BY c.CustomerID
 HAVING `총 주문금액` >= 100000
 ORDER BY `총 주문금액` DESC;
+
+-- 예 총 처리 금액이 10만 달러 미만인 직원 조회
+-- orders, orderdetails products , employees
+
+SELECT e.LastName, e.FirstName, SUM(p.Price * od.Quantity) '총 처리금액'
+FROM employees e JOIN orders o ON e.EmployeeID = o.EmployeeID
+                JOIN orderdetails od ON o.EmployeeID = e.EmployeeID
+                JOIN products p ON P.ProductID = od.ProductID
+Group By e.EmployeeID
+HAVING '총 처리 금액'>= 1000000
+ORDER BY '총 처리 금액' DESC;
