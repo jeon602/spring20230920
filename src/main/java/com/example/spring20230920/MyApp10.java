@@ -12,7 +12,6 @@ interface MyInterface1{
 //    스프링은 필드에 어떤것을 넣어줘야 하는지 읽지 못하므로 내가 적용해 줘야 한다 생성자를 직접 만들어서 주입된 빈에
 //    쿼리 파이어라는 어노테이션으로 빈을 지정해 줘야 한다.
 
-
 }
 @Component
 class MyClass19 implements MyInterface1{
