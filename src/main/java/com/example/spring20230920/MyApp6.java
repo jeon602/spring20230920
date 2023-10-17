@@ -15,6 +15,8 @@ public class MyApp6 {
 
         MyClass9 myClass9 = context.getBean("myClass9", MyClass9.class);
         myClass9.method9();
+
+        System.out.println("myClass9.getField1() =");
     }
 }
 
