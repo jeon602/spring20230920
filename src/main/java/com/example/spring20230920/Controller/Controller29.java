@@ -1,6 +1,9 @@
 package com.example.spring20230920.Controller;
 
 import com.example.spring20230920.dao.MyDao3;
+import com.example.spring20230920.domain.MyDto19;
+import com.example.spring20230920.domain.MyDto20;
+import com.example.spring20230920.domain.MyDto21;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -78,5 +81,28 @@ public class Controller29 {
         Map<String, Object> map = dao3.select9();
         map.entrySet().forEach(System.out::println);
         }
+    @GetMapping("sub10")
+    public void method10(){
+        MyDto19 dto = dao3.select10();
+        System.out.println("dto = " + dto);
 
+    }
+    @GetMapping("sub11")
+    public void method11(){
+        MyDto20 dto = dao3.select11();
+        System.out.println("dto = " + dto);
+
+    }
+    @GetMapping("sub12")
+    public void method12(){
+        MyDto21 dto = dao3.select12();
+        System.out.println("dto = " + dto);
+        //2번 고객의 id name, country
+        //Mydto21의 property는 id name, country
+//        System.out.println("dto = " + dto);
+
+    }
 }
+//모델에 데이터를 넣을 때 java bean을 사용했는데
+//컨트롤러와 서비스 사이에 자바빈으로
+//자바빈 :
