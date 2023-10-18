@@ -1,8 +1,6 @@
 package com.example.spring20230920.dao;
 
-import com.example.spring20230920.domain.MyDto19;
-import com.example.spring20230920.domain.MyDto20;
-import com.example.spring20230920.domain.MyDto21;
+import com.example.spring20230920.domain.*;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
@@ -85,4 +83,76 @@ public interface MyDao3 {
     FROM customers c WHERE CustomerID =2
     """)
     MyDto21 select12();
+
+    @Select("""
+    SELECT ProductID id,
+           ProductName name,
+           Price
+    FROM products 
+    where CategoryID = 2
+    ORDER BY Price 
+    """)
+    List<Map<String, Object>> select13();
+
+    @Select("""
+SELECT ProductName name,
+       Quantity,
+       Price
+FROM products p JOIN orderdetails od 
+                  ON p.ProductID = od.ProductID
+                JOIN orders o 
+                  ON od.OrderID = o.OrderID
+WHERE o.OrderDate = '1996-07-04'
+ORDER BY name
+""")
+    List<Map<String, Object>> select14();
+
+    List<MyDto22> select15();
+@Select("""
+    SELECT o.OrderDate 'date', 
+        p.ProductName name, 
+        c.CategoryName,
+        od.Quantity, 
+        p.Price 
+    FROM orderdetails od JOIN orders o ON od.OrderID = o.OrderID
+                        JOIN products p ON od.ProductID = p.ProductID
+                        JOIN categories c ON p.CategoryID = c.CategoryID
+    WHERE c. CategoryID =1
+    ORDER BY date, name
+    """)
+    List<MyDto23> select16();
+
+
+    @Select("""
+    SELECT CustomerName
+    FROM customers
+    WHERE CustomerID = 100
+    """)
+    String select17();
+
+    @Select("""
+    SELECT CustomerID
+    FROM customers
+    WHERE CustomerID = 100
+    """)
+
+    Integer select18();
+
+    @Select("""
+            SELECT CustomerID id,
+                   CustomerName name,
+                   Country
+            FROM customers
+            WHERE CustomerID = 1
+            """)
+    MyDto24 select19();
+
+    @Select("""
+            SELECT CustomerID id,
+                   CustomerName name,
+                   Country
+            FROM customers
+            WHERE CustomerID > 1
+            """)
+    MyDto24 select20();
 }

@@ -1,14 +1,13 @@
 package com.example.spring20230920.Controller;
 
 import com.example.spring20230920.dao.MyDao3;
-import com.example.spring20230920.domain.MyDto19;
-import com.example.spring20230920.domain.MyDto20;
-import com.example.spring20230920.domain.MyDto21;
+import com.example.spring20230920.domain.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.time.Instant;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
@@ -101,6 +100,52 @@ public class Controller29 {
         //Mydto21의 property는 id name, country
 //        System.out.println("dto = " + dto);
 
+    }
+    @GetMapping("sub13")
+    public void method13(){ //여러개의 열이라면 Map<String, Object>
+        List<Map<String, Object>> rows = dao3.select13();
+        for(Map<String,Object> row : rows);
+
+    }
+    @GetMapping("sub14")
+    public void method14(){
+        // 1996,7.4에 주문된 상품명과 상품의 수량 상품의 가격
+        List<Map<String,Object>> list = dao3.select14();
+        list.forEach(System.out::println);
+
+    }
+    @GetMapping("sub15")
+    public void method15(){
+        List<MyDto22> list = dao3.select15();
+        list.forEach(System.out::println);
+    }
+    @GetMapping("sub16")
+    public void method16(){
+//        1번 카테고리 상품들이 주문된 날짜와 상품명(순), 카테고리명, 수량 가격
+        List<MyDto23> list = dao3.select16();
+        list.forEach(System.out::println);
+    }
+    public void method17(){
+//        1번 카테고리 상품들이 주문된 날짜와 상품명(순), 카테고리명, 수량 가격
+        String s = dao3.select17();
+        System.out.println("s = " + s);
+    }
+    @GetMapping("sub18")
+    public void method18(){
+        Integer s = dao3.select18();
+        System.out.println("s = " + s);
+        }
+
+
+    @GetMapping("sub19")
+    public void method19() {
+        MyDto24 dto = dao3.select19();
+        System.out.println("dto = " + dto);
+    }
+
+    @GetMapping("sub20")
+    public void method20() {
+        MyDto24 myDto24 = dao3.select20();
     }
 }
 //모델에 데이터를 넣을 때 java bean을 사용했는데
