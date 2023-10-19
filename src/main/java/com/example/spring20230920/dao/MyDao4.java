@@ -1,9 +1,7 @@
 package com.example.spring20230920.dao;
 
 import com.example.spring20230920.domain.*;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -58,11 +56,11 @@ public interface MyDao4 {
     Integer select6(MyDto27 dto1, MyDto28 dto2);
 
     @Select("""
-      SELECT CustomerName 
-      FROM customers 
-      where CustomerName LIKE #{dto2.Keyword}
-      LIMIT #{dto1.from}, #{dto1.rows}
-      """)
+            SELECT CustomerName
+            FROM customers
+            WHERE CustomerName LIKE #{dto2.keyword}
+            LIMIT #{dto1.from}, #{dto1.rows}
+            """)
     List<String> select7(MyDto29 dto1, MyDto30 dto2);
 
     @Insert("""
@@ -70,9 +68,70 @@ public interface MyDao4 {
             VALUE (#{name}, #{country})
             """)
     int insert1(MyDto31 dto);
+
     @Insert("""
-        INSERT INTO employees (LastName, FirstName)
-        VALUE (#{LastName}, #{FirstName})
-        """)
+            INSERT INTO employees (LastName, FirstName)
+            VALUE (#{lastName}, #{firstName})
+            """)
     int insert2(MyDto32 emp);
+
+    @Delete("""
+            DELETE FROM customers
+            WHERE CustomerID = #{id}
+            """)
+    int delete1(Integer id);
+
+    @Delete("""
+            DELETE FROM products
+            WHERE ProductID = #{pid}
+            """)
+    int delete2(Integer pid);
+
+    @Select("""
+            SELECT EmployeeID id,
+                   LastName,
+                   FirstName,
+                   BirthDate,
+                   Photo,
+                   Notes
+            FROM employees
+            WHERE EmployeeID = #{id}
+            """)
+    MyDto33Employee select8(Integer id);
+
+    @Update("""
+            UPDATE employees
+            SET LastName = #{lastName},
+                FirstName = #{firstName},
+                Photo = #{photo},
+                Notes = #{notes},
+                BirthDate = #{birthDate}
+            WHERE EmployeeID = #{id}  
+            """)
+    int update1(MyDto33Employee employee);
+    @Select("""
+            SELECT  customerid id,
+                    customername name,
+                    contactname,
+                    address,
+                    city,
+                    postalcode,
+                    country
+            FROM customers
+            WHERE CustomerID = #{id}
+            """)
+    MyDto34 select9(Integer id);
+
+    @Update("""
+            UPDATE customers
+            SET CustomerName = #{name},
+                ContactName = #{contactName},
+                Address = #{address},
+                City = #{city},
+                PostalCode = #{postalCode},
+                Country = #{country}
+            WHERE
+                CustomerID = #{id}
+            """)
+    int update2(MyDto34 customer);
 }
