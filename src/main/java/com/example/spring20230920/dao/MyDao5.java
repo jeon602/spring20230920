@@ -1,5 +1,6 @@
 package com.example.spring20230920.dao;
 
+import com.example.spring20230920.domain.MyDto36;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
@@ -8,7 +9,6 @@ import java.util.Map;
 
 @Mapper
 public interface MyDao5 {
-
 
 
     @Select("""
@@ -22,7 +22,6 @@ public interface MyDao5 {
             </script>
             """)
     String select1(String country);
-
 
 
     @Select("""
@@ -88,55 +87,55 @@ public interface MyDao5 {
 
 
     @Select("""
-        SELECT * 
-        FROM customers
-        WHERE customerName < 'a';
-        """)
+            SELECT * 
+            FROM customers
+            WHERE customerName < 'a';
+            """)
     String select5();
 
     // CDATA : 문자로만 판단, 마크업 코드로 해석하지말라!!
     // "a section of element content that is marked for the parser to interpret as only character data, not markup."
     @Select("""
-        <script>
-            <![CDATA[
-                SELECT *
-                FROM customers
-                WHERE customerName < 'a';
-            ]]>
-        </script>
-        """)
+            <script>
+                <![CDATA[
+                    SELECT *
+                    FROM customers
+                    WHERE customerName < 'a';
+                ]]>
+            </script>
+            """)
     String select6();
 
     @Select("""
-        <script>
-        SELECT * 
-        FROM customers
-        WHERE
-            country IN 
-            
-            <foreach collection="args" 
-                     item="elem" 
-                     separator=", "
-                     open="("
-                     close=")">
-                #{elem}
-            </foreach>
-        </script>
-        """)
+            <script>
+            SELECT * 
+            FROM customers
+            WHERE
+                country IN 
+                
+                <foreach collection="args" 
+                         item="elem" 
+                         separator=", "
+                         open="("
+                         close=")">
+                    #{elem}
+                </foreach>
+            </script>
+            """)
     String select7(List args);
 
     @Select("""
-        <script>
-        SELECT * 
-        FROM customers
-            <trim prefix="WHERE" prefixOverrides="OR">
-                <foreach collection="args"
-                         item="elem">
-                    OR country = #{elem}
-                </foreach>
-            </trim>
-        </script>
-        """)
+            <script>
+            SELECT * 
+            FROM customers
+                <trim prefix="WHERE" prefixOverrides="OR">
+                    <foreach collection="args"
+                             item="elem">
+                        OR country = #{elem}
+                    </foreach>
+                </trim>
+            </script>
+            """)
     String select8(List args);
 
 
@@ -161,13 +160,56 @@ public interface MyDao5 {
                     <if test='word == "def"'>
                         -- word는 def
                     </if>
-                    <if test="word == 'q'">
-                        -- word는 q
-                    </if>
-                    <if test='word == "k"'>
+                    
+                    <if test='word == "k"' -- "" 와  ''의 사용. 캐릭터로 인식하느냐 string으로 인식하느냐; 
+                    -- 텏ㅡ트로 인식해서 비교하고자 얘를 숫자로 바꿀려는 과정을 거친 것,
                         -- word는 k
                     </if>
             </script>
             """)
     String select10(String word);
+
+    @Select("""
+            SELECT DISTINCT  city
+            FROM customers 
+            WHERE city IS NOT NULL city !=
+            Order By 1
+            """)
+    List<String> listCustomerCity();
+
+    @Select("""
+            select DISTINCT country
+            FROM Customers
+            WHERE country IS NOT NULL
+            ORDER BY 1
+            """)
+    List<String> listCustomerCountry();
+
+    @Select(
+            """
+                    <script>
+                    SELECT customerName name, city, country
+                    FROM customers
+                    <trim prefix ="WHERE"> 
+                         <if test='type =="1"'>
+                            city
+                            <foreach collection ="city" item="elem" open=" IN ( "
+                                            seperator= "," close=")"> 
+                                            #{elem}
+                            </foreach>
+                    </if>
+                                
+                                
+                    <if test = 'type == "2"'>
+                        country 
+                        <foreach collection = "country" item = "elem" open "IN ("
+                                    seperator ="," close =")">
+                                #{elem}
+                        <foreach>
+                    </if>
+            </trim>
+            Order By name, country, city
+           </script>
+           """)
+    List<Map<String, Object>> listCustomer(MyDto36 dto);
 }
