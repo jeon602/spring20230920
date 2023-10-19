@@ -1,6 +1,7 @@
 package com.example.spring20230920.Controller;
 
 import com.example.spring20230920.dao.MyDao5;
+import com.example.spring20230920.domain.MyDto36;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -61,7 +62,12 @@ public class Controller31 {
         dao.select4(30);
     }
 
-
+    @GetMapping("sub5")
+    public void method5(MyDto36 dto, Model model){
+        model.addAttribute("cityList", dao.listCustomerCity());
+        model.addAttribute("countryList", dao.listCustomerCountry());
+        model.addAttribute("customerList", dao.listCustomerCountry());
+    }
 
 
 
