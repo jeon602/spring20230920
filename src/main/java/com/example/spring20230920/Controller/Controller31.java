@@ -11,28 +11,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 import java.util.Map;
-
 @Controller
 @RequiredArgsConstructor
 @RequestMapping("main31")
 public class Controller31 {
-
     private final MyDao5 dao;
-
     @GetMapping("sub1")
     public void method1() {
         String res1 = dao.select1("mexico");
         System.out.println("res1 = " + res1);
-
         String res2 = dao.select1(null);
         System.out.println("res2 = " + res2);
     }
-
     @GetMapping("sub2")
     public void method2(Integer num) {
         dao.select2(num);
     }
-
     // /main31/sub3?code=1&k=ro
     // /main31/sub3?code=2&k=ro
     @GetMapping("sub3")
@@ -44,7 +38,6 @@ public class Controller31 {
         WHERE
             customerName LIKE '%ro%'
          */
-
         // code가 2이면
         /*
         SELECT customerName, contactName
@@ -53,22 +46,16 @@ public class Controller31 {
             contactName LIKE '%ro%'
          */
         List<Map<String, Object>> rows = dao.select3(code, "%" + k + "%");
-
         model.addAttribute("names", rows);
     }
-
     @GetMapping("sub4")
     public void method4() {
         dao.select4(30);
     }
-
     @GetMapping("sub5")
     public void method5(MyDto36 dto, Model model){
         model.addAttribute("cityList", dao.listCustomerCity());
         model.addAttribute("countryList", dao.listCustomerCountry());
         model.addAttribute("customerList", dao.listCustomerCountry());
     }
-
-
-
 }
