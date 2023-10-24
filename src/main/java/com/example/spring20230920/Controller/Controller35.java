@@ -1,4 +1,4 @@
-package com.example.spring20230920.Controller;
+package com.example.spring20230920.controller;
 
 import com.example.spring20230920.domain.MyDto38;
 import lombok.RequiredArgsConstructor;
@@ -73,18 +73,18 @@ public class Controller35 {
         System.out.println("dto = " + dto);
 
     }
+
     @PostMapping("sub10")
     public void method10(String name,
-                         @RequestParam ("files[]") MultipartFile[] files){
-        System.out.println("name" +  name);
-        if(files != null){
-            System.out.println("파일 목록 ");
-
-            for(Multipartfile file : files){
-                if(file.getsize()>0){
+                         @RequestParam("files[]") MultipartFile[] files) {
+        System.out.println("name = " + name);
+        if (files != null) {
+            System.out.println("파일 목록");
+            for (MultipartFile file : files) {
+                if (file.getSize() > 0) {
                     System.out.println(file.getOriginalFilename());
                 }
             }
         }
-    };
+    }
 }
