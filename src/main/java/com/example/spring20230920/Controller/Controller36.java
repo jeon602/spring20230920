@@ -3,9 +3,7 @@ package com.example.spring20230920.Controller;
 import com.example.spring20230920.dao.MyDao7;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.util.Map;
@@ -70,6 +68,18 @@ public class Controller36 {
 
 
     // 브라우저 개발자도구 콘솔에 axios 코드 작성 후 실행
+    /*
+    axios.post("/main36/sub5", {
+        name: "라면",
+        price: 150.00,
+        category: 3
+    }, {
+        headers: {
+            "content-type": "application/x-www-form-urlencoded"
+        }
+    })
+
+     */
     // post /main36/sub5
     // name=라면&price=150.00&category=3
     @PostMapping("sub5")
@@ -79,4 +89,79 @@ public class Controller36 {
         int r = dao.insertProduct(name, price, category);
         System.out.println(r + "개 행이 입력됨");
     }
+
+    /*
+    axios.delete("/main36/sub6")
+     */
+
+    //    @RequestMapping(method = RequestMethod.DELETE, value = "sub6")
+    @DeleteMapping("sub6")
+    public void method6() {
+        System.out.println("Controller36.method6");
+    }
+
+    /*
+    js 코드 작성 후 브라우저 콘솔에 실행
+    axios.delete("/main36/sub7")
+     */
+
+    @DeleteMapping("sub7")
+    public void method7() {
+        System.out.println("Controller36.method7");
+    }
+
+    /*
+    axios.delete("/main36/sub8?name=son")
+    axios.delete("/main36/sub8", {
+        params: {
+            name: "son"
+        }
+    })
+     */
+    @DeleteMapping("sub8")
+    public void method8(String name) {
+        System.out.println("name = " + name);
+    }
+
+    // PathVariable : 경로에 포함된 데이터
+    /*
+    axios.delete("/main36/sub9/son")
+    axios.delete("/main36/sub9/lee")
+     */
+    @DeleteMapping("sub9/{name}")
+    public void method9(@PathVariable("name") String n) {
+        System.out.println("n = " + n);
+    }
+
+    /*
+    axios.delete("/main36/sub10/3")
+    axios.delete("/main36/sub10/5")
+    axios.delete("/main36/sub10/7")
+     */
+    // delete /main36/sub10
+    // 일하는 메소드 작성
+    // 3, 5, 7은 메소드 아규먼트로 받아서 콘솔에 출력
+    @DeleteMapping("sub10/{id}")
+    public void method10(@PathVariable Integer id) {
+        System.out.println("id = " + id);
+    }
+
+    /*
+    axios.delete("/main36/sub11/1")
+    axios.delete("/main36/sub11/3")
+    axios.delete("/main36/sub11/5")
+     */
+    @DeleteMapping("sub11/{pid}")
+    public void method11(@PathVariable Integer pid) {
+        int c = dao.deleteByProductId(pid);
+        System.out.println(c + "개 데이터 삭제됨");
+    }
+
+    /*
+    axios.delete("/main36/sub12/1")
+    axios.delete("/main36/sub12/3")
+    axios.delete("/main36/sub12/5")
+     */
+
+
 }
