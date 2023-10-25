@@ -1,4 +1,4 @@
-package com.example.spring20230920.Controller;
+package com.example.spring20230920.controller;
 
 import com.example.spring20230920.dao.MyDao8;
 import com.example.spring20230920.domain.MyDto33Employee;
@@ -18,8 +18,9 @@ import java.util.Map;
 public class Controller38 {
 
     private final MyDao8 dao;
+
     @GetMapping("sub0")
-    public void method0(){
+    public void method0() {
 
     }
 
@@ -37,6 +38,12 @@ public class Controller38 {
     @GetMapping("sub2")
     @ResponseBody
     public String method2() {
+
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
 
         return "hello world";
     }
@@ -84,12 +91,19 @@ public class Controller38 {
         return dao.selectByEmplyeeId(id);
     }
 
+
+    /*
+    axios.get("/main38/sub7?id=33")
+    33번 상품의 정보를 json으로 응답
+    id(상품아이디)
+    price(상품가격)
+    category(카테고리명)
+    unit(단위)
+     */
+    // 7번째 메소드와 45번째 dto, dao.selectByProductId2
     @GetMapping("sub7")
     @ResponseBody
-    public MyDto45 method7(Integer id){
-        return dao.selectByProductId(id);
+    public MyDto45 method7(Integer id) {
+        return dao.selectByProductId2(id);
     }
-
-
 }
-
