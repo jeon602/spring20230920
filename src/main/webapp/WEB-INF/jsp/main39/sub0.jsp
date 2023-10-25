@@ -69,5 +69,50 @@
         }
     </script>
 </div>
+<%--<div> 윗 코드와 다른 점.
+    <button onclick="ajax4()">button4</button>
+    <p id="result1"></p>
+    <script>
+        function ajax4() {
+            // 400번대 응답이면 #result1 요소에 "잘못된 요청" 출력
+            // 500번대 응답이면 #resutt1 요소에 "서버 에러" 출력
+            axios.get("/main39/sub3")
+                .catch(function (error) {
+                    const code = error.response.status;
+                    let message = "";
+                    if (400 <= code && code < 500) {
+                        message = "잘못된 요청";
+                    } else if (500 <= code) {
+                        message = "서버 에러";
+                    }
+                    document.querySelector("#result1").textContent = message;
+                });
+        } 위 코드와 다른 점 : 가독성과 유지보수성 측면에서 코드의 목적이 명확하다.
+        ajax4 첫번째 코드가 틀린건 아님.
+    </script>
+</div>--%>
+<div>
+    <input type="text" id="input1" value="30">
+    <button onclick="ajax5()">button5</button>
+<script>
+    function ajax5() {
+        const pid = document.getElementById("input1").value;
+        axios.get("/main39/sub4?id=" + pid) //bad request
+            .then(response => response.data)
+            .then(date => console.log(data))
+            .then(date =>console.log(data))
+            .catch(error => console.log(error));
+    }
+</script>
+</div>
+<div>
+    <button onclick="ajax6()">button6</button>
+    <script>
+        function ajax6(){
+
+        }
+    </script>
+</div>
+
 </body>
 </html>

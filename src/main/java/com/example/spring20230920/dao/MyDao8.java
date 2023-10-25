@@ -4,6 +4,7 @@ import com.example.spring20230920.domain.MyDto33Employee;
 import com.example.spring20230920.domain.MyDto45;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+import org.springframework.http.ResponseEntity;
 
 import java.util.Map;
 
@@ -39,4 +40,6 @@ public interface MyDao8 {
             ON p.categoryId = c.CategoryId""")
 
     MyDto45 selectByProductId(Integer id);
+
+    ResponseEntity<MyDto45> selectByProductId2(int i);
 }
