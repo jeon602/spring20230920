@@ -1,4 +1,4 @@
-package com.example.spring20230920.controller;
+package com.example.spring20230920;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
