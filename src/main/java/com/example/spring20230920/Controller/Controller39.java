@@ -27,9 +27,13 @@ public class Controller39 {
     }
     @GetMapping("sub2")
     public ResponseEntity method2(){
-        return ResponseEntity.notFound().build();
+        return ResponseEntity.internalServerError().build();
     }
     //response entity의 메소드는 ::: api참고 자주 쓰는 응답 코드 : accept200 bad request 400- Internal
 
+    @GetMapping("sub3")
+    public ResponseEntity method3(){
+        return ResponseEntity.internalServerError().build();
+    }
 
 }
